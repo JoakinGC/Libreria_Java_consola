@@ -1,0 +1,34 @@
+package biblioteca.prestamo;
+
+import java.util.ArrayList;
+
+public class Revista {
+	private String IdRevista;
+	private String titulo;
+	private ArrayList<Editorial> editoriales;
+	public Revista(String idRevista, String titulo, ArrayList<Editorial> editoriales) {
+		IdRevista = idRevista;
+		this.titulo = titulo;
+		this.editoriales = editoriales;
+	}
+	public String getIdRevista() {
+		return IdRevista;
+	}
+	public void setIdRevista(String idRevista) {
+		IdRevista = idRevista;
+	}
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public ArrayList<Editorial> getEditoriales() {
+		return editoriales;
+	}
+	public void setEditoriales(ArrayList<Editorial> editoriales) {
+		this.editoriales = editoriales;
+	}
+	
+	
+}

@@ -1,0 +1,89 @@
+package biblioteca.prestamo;
+
+public class Ejemplar  implements Comparable<Ejemplar>{
+	private String idEjemplar;
+	private Libro libro;
+	private Revista revista;
+	
+	
+	public Ejemplar(String idEjemplar, Libro libro) {
+		
+		this.idEjemplar = idEjemplar;
+		this.libro = libro;
+		this.revista = null;
+		
+	}
+	
+	public Ejemplar(String idEjemplar,  Revista revista) {
+		
+		this.idEjemplar = idEjemplar;
+		this.revista = revista;
+		this.libro = null;
+	}
+
+	public String getIdEjemplar() {
+		return idEjemplar;
+	}
+
+	
+	public Libro getLibro() {
+		return libro;
+	}
+
+	public void setLibro(Libro libro) {
+		this.libro = libro;
+	}
+
+	public Revista getRevista() {
+		return revista;
+	}
+
+	public void setRevista(Revista revista) {
+		this.revista = revista;
+	}
+	
+
+	@Override
+	public int compareTo(Ejemplar otroEjemplar) {
+	    int comparacionTipo = getTipoEjemplar().compareTo(otroEjemplar.getTipoEjemplar());
+
+	    if (comparacionTipo != 0) {
+	        return comparacionTipo;
+	    } else {
+	        if (this.libro != null && otroEjemplar.libro != null) {
+	            // Comparación de dos ejemplares de libros
+	            int comparacionId = this.idEjemplar.compareTo(otroEjemplar.idEjemplar);
+	            if (comparacionId != 0) {
+	                return comparacionId;
+	            } else {
+	                // Comparación adicional basada en otros criterios del libro
+	                // Por ejemplo, puedes comparar el título del libro
+	                return this.libro.getTitulo().compareTo(otroEjemplar.libro.getTitulo());
+	            }
+	        } else if (this.revista != null && otroEjemplar.revista != null) {
+	            // Comparación de dos ejemplares de revistas
+	            int comparacionId = this.idEjemplar.compareTo(otroEjemplar.idEjemplar);
+	            if (comparacionId != 0) {
+	                return comparacionId;
+	            } else {
+	                // Comparación adicional basada en otros criterios de la revista
+	                // Por ejemplo, puedes comparar el nombre de la revista
+	                return this.revista.getTitulo().compareTo(otroEjemplar.revista.getTitulo());
+	            }
+	        } else {
+	            // No se pueden comparar ejemplares de tipos diferentes
+	            throw new IllegalArgumentException("No se pueden comparar ejemplares de tipos diferentes");
+	        }
+	    }
+	}
+
+	private String getTipoEjemplar() {
+	    if (libro != null) {
+	        return "Libro";
+	    } else if (revista != null) {
+	        return "Revista";
+	    } else {
+	        throw new IllegalStateException("Ejemplar no válido");
+	    }
+	}
+}

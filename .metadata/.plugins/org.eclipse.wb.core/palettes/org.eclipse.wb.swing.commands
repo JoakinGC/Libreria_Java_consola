@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<commands>
+	<addCategory
+		id="category_1686650873477"
+		name="Custom"
+		description="Container for custom components"
+		visible="true"
+		open="true"/>
+	<addComponent
+		id="custom_1686650873477"
+		name="JFrame"
+		description="Creates javax.swing.JFrame component."
+		visible="true"
+		class="javax.swing.JFrame"
+		category="category_1686650873477"/>
+</commands>

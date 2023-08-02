@@ -1,0 +1,24 @@
+package biblioteca.prestamo;
+
+public class Ejemplar {
+	private String idEjemplar;
+	private Libro libro;
+	private Revista revista;
+	
+	
+	public Ejemplar(String idEjemplar, Libro libro) {
+		super();
+		this.idEjemplar = idEjemplar;
+		this.libro = libro;
+		this.revista = revista;
+	}
+	
+	public Ejemplar(String idEjemplar,  Revista revista) {
+		super();
+		this.idEjemplar = idEjemplar;
+		this.libro = libro;
+		this.revista = revista;
+	}
+	
+	
+}

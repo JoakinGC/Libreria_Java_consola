@@ -1,0 +1,7 @@
+package biblioteca.prestamo;
+
+public class Revista {
+	private String IdRevista;
+	private String titulo;
+	private ArrayList<Editorial> editoriales;
+}
